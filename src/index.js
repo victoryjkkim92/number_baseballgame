@@ -4,8 +4,8 @@ const tryNumSize = tryNum.length;
 
 // 시도 횟수 한번 판단 함수
 function oneGame() {
-  const strike = howManyStrike(tryNum, answer);
-  const ball = howManyBall(tryNum, answer);
+  const strike = howManyStrike();
+  const ball = howManyBall();
   if (strike === 3) { // 스트라이크가 3이면 즈어어엉답!!
     console.log("즈어어엉답!!");
   } else { // 정답이 아니면 strike 와 ball 횟수 출력
