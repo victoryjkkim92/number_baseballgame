@@ -14,9 +14,8 @@ tryButton.addEventListener("click", e => {
   round.textContent = "1회";
   turnListItemEl.appendChild(round);
 
-  // 연습
   let inputBoxEl = inputBoxDigit1.cloneNode()
-  turnListItemEl.appendChild(inputBoxEl);
+  turnListItemEl.appendChild(inputBoxEl)
   inputBoxEl = inputBoxDigit2.cloneNode()
   turnListItemEl.appendChild(inputBoxEl);
   inputBoxEl = inputBoxDigit3.cloneNode()
@@ -28,6 +27,7 @@ tryButton.addEventListener("click", e => {
   // console.log(inputBoxDigit1.value)
   e.preventDefault();
 });
+
 
 // 한번 더 버튼에 클릭 이벤트가 일어났을 때
 // const resetButton = document.querySelector(".input-box-reset");
@@ -83,6 +83,8 @@ function howManyBall() {
   }
   return ball;
 }
+
+// 정답 랜덤 생성
 function randomAnswer() {
   const a = Math.floor(Math.random() * 9);
   const b = Math.floor(Math.random() * 9);
@@ -91,6 +93,13 @@ function randomAnswer() {
 }
 
 console.log (randomAnswer())
+
+// '한번 더' 버튼 눌렀을 때 화면 날리기
+const resetButton = document.querySelector(".input-box-reset");
+
+resetButton.addEventListener('click', e => {
+  turnListEl.removeChild(turnListItemEl)
+})
 
 oneGame();
 
