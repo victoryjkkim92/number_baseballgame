@@ -75,6 +75,15 @@ ul {
 .input-box-try, .input-box-reset{
   font-size: 1.4rem;
 }
-.input-box-reset{
 
+.turn-items{
+  display: block;
+  background: #fff;
+  height: 50px;
+}
+
+.turn-list{
+  display: block;
+  height: 100px;
+  background: yellow;
 }
