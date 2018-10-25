@@ -83,5 +83,15 @@ function howManyBall() {
   }
   return ball;
 }
+function randomAnswer() {
+  const a = Math.floor(Math.random() * 9);
+  const b = Math.floor(Math.random() * 9);
+  const c = Math.floor(Math.random() * 9);
+  return a.toString() + b.toString() + c.toString();
+}
+
+console.log (randomAnswer())
 
 oneGame();
+
+
