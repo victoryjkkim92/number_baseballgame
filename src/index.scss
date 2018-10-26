@@ -22,7 +22,8 @@ time, mark, audio, video /* * : 전체선택자*/ {
   font-family: "Gaegu", cursive;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */ /* 모르는 태그가 나오면 inline요소처리하는데, 해당 태그들를 block 요소로 만들어줌 */
+/* HTML5 display-role reset for older browsers */
+/* 모르는 태그가 나오면 inline요소처리하는데, 해당 태그들를 block 요소로 만들어줌 */
 article,
 aside,
 details,
@@ -46,6 +47,7 @@ body,
 html {
   height: 100%;
 }
+
 .bg {
   background-image: url("../images/baseball.png");
   height: 100%;
@@ -53,6 +55,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 // 모든 컨텐츠를 감싸는 메인 영역
 .main {
   display: block;
@@ -60,6 +63,7 @@ html {
   padding-top: 50px;
   text-align: center;
 }
+
 // 게임 영역의 배경
 .background {
   background: #fff;
@@ -86,6 +90,7 @@ html {
   width: 400px;
   margin: 0 auto;
 }
+
 .input-box {
   margin-top: 10px;
 }
@@ -97,14 +102,17 @@ html {
 .input-box-digit-3,
 .input-box-try,
 .input-box-reset {
-  // line-height: 30px;
+  line-height: 30px;
   margin: 0 5px;
+  border-radius: 5px;
+  color: darkolivegreen;
+  background-color: #bdcebe;
 }
+
 .input-box-digit-1,
 .input-box-digit-2,
 .input-box-digit-3 {
   text-align: center;
-  color: darkolivegreen;
   font-size: 12px;
   font-weight: 600;
   width: 3em;
@@ -113,11 +121,9 @@ html {
 /* 도전, 한번 더 버튼 레이아웃 */
 .input-box-try,
 .input-box-reset {
-  font-size: 1.4rem;
-  color: darkolivegreen;
-  background-color: #bdcebe;
+  font-size: 1.5rem;
+  padding: 4px;
   font-family: "Gaegu", cursive;
-  border-radius: 5px;
 }
 // 게임을 하면 추가되는 세트
 .turn-list > div {
@@ -129,8 +135,8 @@ html {
   justify-content: space-between;
   align-items: center;
 }
-.turn-list{
-  color: #aaaa33;
+.turn-list {
+  color: #363617;
 }
 
 // 아웃인지 스트라이크인지 알려주는 부분
