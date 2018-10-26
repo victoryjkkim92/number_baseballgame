@@ -22,12 +22,13 @@ descriptionButton.addEventListener("click", e => {
 });
 description.addEventListener("click", e => {
   description.style.display = "none";
+  inputBoxDigits[0].focus();
 });
-
 
 // '시도' 버튼 눌렀을 때
 tryButton.addEventListener("click", e => {
-  if (checkValidation()) { // input box 들에 값이 다 들어가고 중복 값이 없을 때에만 실행
+  if (checkValidation()) {
+    // input box 들에 값이 다 들어가고 중복 값이 없을 때에만 실행
     // 한번 시도 시 그에 대한 정보를 담아주기 위한 div 만듬
     const turnListItemEl = document.createElement("div");
     const round = document.createElement("span"); // 몇번째 시도인지 담을 span 만듬
@@ -59,10 +60,10 @@ tryButton.addEventListener("click", e => {
 
     // 시도 횟수 9회 초과 시 더 이상 '시도' 버튼을 누를 수 없게 한다.
     if (roundNum === 10 && result !== "정답") {
-      resultField.textContent = "정답은 "+ answer[0] + " " + answer[1] + " " + answer[2] + " 입니다.";
+      resultField.textContent =
+        "정답은 " + answer[0] + " " + answer[1] + " " + answer[2] + " 입니다.";
       blockScreen();
     }
-
   }
   e.preventDefault();
 });
@@ -97,7 +98,8 @@ inputBoxDigits.forEach(el => {
 // 0~9 사이 랜덤한 정수 세 개를 반환한다.
 function randomAnswer(arr) {
   let tmpNum;
-  do { // 중복 숫자가 아닐 때 까지
+  do {
+    // 중복 숫자가 아닐 때 까지
     tmpNum = getRandom();
   } while (arr.includes(tmpNum));
   arr.push(tmpNum);
@@ -123,20 +125,25 @@ function checkValidation() {
   let msg = "";
   let valid = true;
   // 값을 다 채우지 않았을 때
-  for(let i=0; i<answer.length; i++){ // 그냥 answer.length 는 3
+  for (let i = 0; i < answer.length; i++) {
+    // 그냥 answer.length 는 3
     // 입력값이 빈칸일 때
-    if ( inputBoxDigits[i].value === "") {
+    if (inputBoxDigits[i].value === "") {
       msg = "빈칸 앙대요!";
       valid = false;
       break;
     } // 입력 값이 숫자가 아닐 때
-    else if(!Number.parseInt(inputBoxDigits[i].value) && inputBoxDigits[i].value !== "0"){
+    else if (
+      !Number.parseInt(inputBoxDigits[i].value) &&
+      inputBoxDigits[i].value !== "0"
+    ) {
       msg = "숫자만 입력해주세용";
-      valid  = false;
+      valid = false;
       break;
     }
-    for(let j=i+1; j<answer.length; j++){ // 입력 값 중 중복이 있을 때
-      if (inputBoxDigits[i].value === inputBoxDigits[j].value){
+    for (let j = i + 1; j < answer.length; j++) {
+      // 입력 값 중 중복이 있을 때
+      if (inputBoxDigits[i].value === inputBoxDigits[j].value) {
         msg = "중복 앙대요!";
         valid = false;
         break;
@@ -144,9 +151,11 @@ function checkValidation() {
     }
   }
 
-  if(valid){ // 잘 입력했으면 return true
+  if (valid) {
+    // 잘 입력했으면 return true
     return true;
-  } else { // 중복이 있거나 빈칸이면 처리
+  } else {
+    // 중복이 있거나 빈칸이면 처리
     mainTitle.innerHTML = msg; // 타이틀에 경고 메세지 나타내기
     initialize(); // 박스에 채워진 값 초기화
     // 1초 후 타이틀 다시 원상복구

@@ -1,20 +1,88 @@
 @charset "utf-8";
+//구글 폰트 사용을 위한 import
 @import url("https://fonts.googleapis.com/css?family=Gaegu:300,400,700&subset=korean");
 
 /* 스타일 초기화 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-/* fieldset,*/ form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video /* * : 전체선택자*/ {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,7 +90,6 @@ time, mark, audio, video /* * : 전체선택자*/ {
   font-family: "Gaegu", cursive;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
 /* 모르는 태그가 나오면 inline요소처리하는데, 해당 태그들를 block 요소로 만들어줌 */
 article,
 aside,
@@ -42,13 +109,12 @@ ul {
   list-style-type: none;
 }
 
-//전체에 삽입되는 이미지
+//html전제체 삽입되는 이미지
 body,
 html {
   overflow: hidden;
   height: 100vh;
 }
-
 
 .bg {
   background-image: url("../images/ball.png");
@@ -58,7 +124,6 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 // 모든 컨텐츠를 감싸는 메인 영역
 .main {
@@ -99,12 +164,13 @@ html {
   width: 100%;
   margin: 0 auto;
 }
-
 .input-box {
   height: 9%;
   line-height: 9%;
+  padding-top: 3px;
   box-sizing: border-box;
 }
+// input박스를 전체를 묶는 부분
 .input-boxes {
   display: inline-block;
 }
@@ -129,13 +195,15 @@ html {
   height: 30px;
   width: 30px;
 }
-/* 도전, 한번 더 버튼 레이아웃 */
+
+// 도전, 한번 더 버튼 레이아웃
 .input-box-try,
 .input-box-reset {
   font-size: 1.4rem;
   padding: 1px 5px;
   font-family: "Gaegu", cursive;
 }
+
 // 게임을 하면 추가되는 세트
 .turn-list > div {
   padding: 0 10px;
@@ -151,7 +219,7 @@ html {
   height: 80%;
 }
 
-// 아웃인지 스트라이크인지 알려주는 부분
+// 아웃인지 스트라이크인지 결과를 알려주는 부분
 .turn-list > div > span {
   display: inline-block;
   height: 100%;
@@ -159,37 +227,7 @@ html {
 }
 
 // 푸터
-.footer {
-  padding-top: 20px;
-  width: max-content;
-  height: 10%;
-  margin: 0 auto;
-  color: #fff;
-  font-size: 2rem;
-}
 
-// 게임설명
-.description-button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-.game-description{
-  display: block;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: white;
-  font-size: 50px;
-  cursor : pointer;
-  overflow: hidden;
-}
-
-// 푸터
 .footer {
   padding-top: 20px;
   width: max-content;
@@ -200,15 +238,34 @@ html {
   text-decoration: underline;
 }
 
-// 게임설명
+// 게임설명 : 자바스크립트와 연동되는 부분
+.description-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.game-description {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+  overflow: hidden;
+}
 
+// 게임 규칙 설명
 .game-description > h2 {
   height: 20vh;
   line-height: 20vh;
 }
 .how-to-play {
   font-size: 1.5rem;
-  // padding-top: 3%;
   margin: 0 auto;
   width: 60%;
   height: 75vh;
@@ -223,15 +280,10 @@ html {
   line-height: 15vh;
   box-sizing: border-box;
   text-decoration: underline;
-  // border: 3px solid red;
 }
 .game-description p {
   font-size: 1.6rem;
-  // border: 3px solid orange;
   height: 10vh;
   line-height: 9vh;
   box-sizing: border-box;
 }
-
-
-
