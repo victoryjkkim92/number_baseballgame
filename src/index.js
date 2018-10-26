@@ -138,7 +138,7 @@ function nullCheck() {
     mainTitle.innerHTML = "답 똑디 채워라";
     initialize();
     setTimeout(function() {
-      mainTitle.innerHTML = "친구야, 한턱 쏠끼가";
+      mainTitle.innerHTML = "숫자야구 with 츄츄트레인";
     }, 1000);
     return false;
   }
