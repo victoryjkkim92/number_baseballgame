@@ -20,10 +20,14 @@ tryButton.addEventListener("click", e => {
   tryNum.push(inputBoxDigit1.value);
   tryNum.push(inputBoxDigit2.value);
   tryNum.push(inputBoxDigit3.value);
+
   oneGame();
+
   const resultField = document.createElement("span");
   resultField.textContent = result;
+
   // 리스트에 복제되서 추가되는 input box들 수정 막는 코드
+
   for (let i = 0; i < turnListItemEl.children.length; i++) {
     turnListItemEl.children[i].setAttribute("readonly", "");
   }
@@ -36,8 +40,19 @@ tryButton.addEventListener("click", e => {
   inputBoxDigit3.value = "";
   inputBoxDigit1.focus();
   console.log("result" + result);
+  // 숫자 제한
+  // if(roundNum === 9){
+
+  // }
+
+
+
+
+
+
   e.preventDefault();
 });
+
 // 자동 포커스 이동
 inputBoxes.childNodes.forEach(el => {
   el.addEventListener("input", e => {
@@ -59,7 +74,7 @@ function oneGame() {
   if (strike === 3) {
     // 스트라이크가 3이면 즈어어엉답!!
     console.log("즈어어엉답!!");
-    result = "즈어엉답!";
+    result =  "즈어엉답!";
   } else {
     // 정답이 아니면 strike 와 ball 횟수 출력
     console.log(strike + " strike");
@@ -101,6 +116,7 @@ function howManyBall() {
   }
   return ball;
 }
+
 function randomAnswer() {
   const a = Math.floor(Math.random() * 9);
   const b = Math.floor(Math.random() * 9);
