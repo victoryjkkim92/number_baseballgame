@@ -44,7 +44,8 @@ ul {
 
 // 전체에 삽입되는 이미지
 body,
-html {  height: 100vh;
+html {
+  height: 100vh;
 }
 
 .bg {
@@ -92,7 +93,7 @@ html {  height: 100vh;
   background: -webkit-linear-gradient(#e3eaa7, #3e4444);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 3em;
+  font-size: 2.6em;
   font-family: "Gaegu", cursive;
   border: 2px solid powderblue;
   height: 9%;
@@ -153,7 +154,7 @@ html {  height: 100vh;
   align-items: center;
   box-sizing: border-box;
 }
-.turn-list{
+.turn-list {
   color: #aaa;
   height: 80%;
   border: 2px solid blue;
@@ -170,8 +171,8 @@ html {  height: 100vh;
   bottom: 10px;
   right: 10px;
 }
-.game-description{
-  display: none;
+.game-description {
+  display: block;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0px;
@@ -192,3 +193,34 @@ html {  height: 100vh;
   font-size: 2rem;
   background-color: red;
 }
+
+// 게임설명
+
+.game-description > h2 {
+  padding: 70px;
+}
+.how-to-play {
+  font-size: 1.5rem;
+  padding-top:20px;
+  margin: 0 auto;
+  width: 60%;
+  height: 60%;
+  border-radius: 40px;
+  border: 1px dashed #fff;
+}
+.how-to-play h2 {
+  font-size: 3rem;
+  text-decoration: underline;
+}
+.game-description p {
+  margin-top: 30px;
+  padding: 5px;
+  font-size: 1.6rem;
+}
+
+.wrong-answer{
+  display: none;
+  background: #fff;
+}
+
+
