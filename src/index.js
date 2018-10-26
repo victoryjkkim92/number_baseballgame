@@ -101,10 +101,21 @@ function howManyBall() {
   }
   return ball;
 }
+// 정답 랜덤 생성
 function randomAnswer() {
   const a = Math.floor(Math.random() * 9);
   const b = Math.floor(Math.random() * 9);
   const c = Math.floor(Math.random() * 9);
   return a.toString() + b.toString() + c.toString();
 }
-console.log(randomAnswer());
+
+console.log (randomAnswer())
+
+// '한번 더' 버튼 눌렀을 때 화면 날리기
+const resetButton = document.querySelector(".input-box-reset");
+
+resetButton.addEventListener('click', e => {
+  turnListEl.removeChild(turnListItemEl)
+})
+
+oneGame();
