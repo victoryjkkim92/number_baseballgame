@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Gaegu:300,400,700&subset=korean');
+@import url("https://fonts.googleapis.com/css?family=Gaegu:300,400,700&subset=korean");
 
 /* 스타일 초기화 */
 html, body, div, span, applet, object, iframe,
@@ -19,7 +19,7 @@ time, mark, audio, video /* * : 전체선택자*/ {
   padding: 0;
   border: 0;
   font-size: 1em;
-  font-family: 'Gaegu', cursive;
+  font-family: "Gaegu", cursive;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */ /* 모르는 태그가 나오면 inline요소처리하는데, 해당 태그들를 block 요소로 만들어줌 */
@@ -47,7 +47,7 @@ html {
   height: 100%;
 }
 .bg {
-  background-image: url("../images/baseball.jpg");
+  background-image: url("../images/baseball.png");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -63,19 +63,21 @@ html {
 // 게임 영역의 배경
 .background {
   background: #fff;
-  opacity: 0.9;
-  width: max-content;
-  height: 570px;
+  width: 500px;
+  height: 590px;
   margin: 0 auto;
   padding: 30px;
-  border: 5px dotted #000;
+  border: 5px dotted #c94c4c;
   border-radius: 30px;
 }
 
 // 게임의 제목
 .main-title {
+  background: -webkit-linear-gradient(#e3eaa7, #3e4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 3em;
-  font-family: 'Gaegu', cursive;
+  font-family: "Gaegu", cursive;
 }
 
 /* 숫자가 들어올 input상자 레이아웃 */
@@ -85,7 +87,7 @@ html {
   margin: 0 auto;
 }
 .input-box {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .input-boxes {
   display: inline-block;
@@ -95,7 +97,7 @@ html {
 .input-box-digit-3,
 .input-box-try,
 .input-box-reset {
-  line-height: 30px;
+  // line-height: 30px;
   margin: 0 5px;
 }
 .input-box-digit-1,
@@ -109,18 +111,35 @@ html {
 .input-box-try,
 .input-box-reset {
   font-size: 1.4rem;
-  font-family: 'Gaegu', cursive;
+  color: darkolivegreen;
+  background-color: #bdcebe;
+  font-family: "Gaegu", cursive;
+  border-radius: 5px;
 }
+// 게임을 하면 추가되는 세트
 .turn-list > div {
-  padding-top: 10px;
+  padding-top: 5px;
+  font-size: 1.2rem;
+  height: 50px;
   // display: block;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.turn-list{
+  color: #aaa;
+}
+
+// 아웃인지 스트라이크인지 알려주는 부분
+.turn-list > div > span {
+  display: inline-block;
+  height: 100%;
+  line-height: 50px;
 }
 
 // 푸터
 .footer {
-  padding-top: 80px;
+  padding-top: 60px;
   width: max-content;
   margin: 0 auto;
   color: #fff;
