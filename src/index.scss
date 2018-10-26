@@ -75,4 +75,8 @@ ul {
 .input-box-try, .input-box-reset{
   font-size: 1.4rem;
 }
+.input-box-try:focus, .input-box-reset:focus{
+  border : 5px solid red;
+}
+
 
