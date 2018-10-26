@@ -45,6 +45,7 @@ ul {
 //전체에 삽입되는 이미지
 body,
 html {
+  overflow: hidden;
   height: 100vh;
 }
 
@@ -184,7 +185,7 @@ html {
   text-align: center;
   color: white;
   font-size: 50px;
-  cursor: pointer;
+  cursor : pointer;
   overflow: hidden;
 }
 
