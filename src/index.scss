@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans");
+@import url('https://fonts.googleapis.com/css?family=Gaegu:300,400,700&subset=korean');
 
 /* 스타일 초기화 */
 html, body, div, span, applet, object, iframe,
@@ -19,7 +19,7 @@ time, mark, audio, video /* * : 전체선택자*/ {
   padding: 0;
   border: 0;
   font-size: 1em;
-  font-family: 'Black Han Sans', sans-serif;
+  font-family: 'Gaegu', cursive;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */ /* 모르는 태그가 나오면 inline요소처리하는데, 해당 태그들를 block 요소로 만들어줌 */
@@ -41,52 +41,88 @@ ul {
   list-style-type: none;
 }
 
-// 레이아웃
-.wrapper{
-  background-color: #405d27;
-  height: 100vh;
-  width: 100%;
+// 전체에 삽입되는 이미지
+body,
+html {
+  height: 100%;
 }
+.bg {
+  background-image: url("../images/baseball.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+// 모든 컨텐츠를 감싸는 메인 영역
 .main {
   display: block;
   margin: 0 auto;
   padding-top: 50px;
   text-align: center;
 }
-/* 타이틀  */
+// 게임 영역의 배경
+.background {
+  background: #fff;
+  opacity: 0.9;
+  width: max-content;
+  height: 570px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 5px dotted #000;
+  border-radius: 30px;
+}
+
+// 게임의 제목
 .main-title {
   font-size: 3em;
-  font-family: 'Black Han Sans', sans-serif;
+  font-family: 'Gaegu', cursive;
 }
 
 /* 숫자가 들어올 input상자 레이아웃 */
-.input-box, .turn-list{
+.input-box,
+.turn-list {
   width: 400px;
   margin: 0 auto;
 }
-.input-box{
+.input-box {
   margin-top: 20px;
 }
-.input-boxes{
+.input-boxes {
   display: inline-block;
 }
-.input-box-digit-1, .input-box-digit-2, .input-box-digit-3, .input-box-try, .input-box-reset{
+.input-box-digit-1,
+.input-box-digit-2,
+.input-box-digit-3,
+.input-box-try,
+.input-box-reset {
   line-height: 30px;
   margin: 0 5px;
 }
-.input-box-digit-1, .input-box-digit-2, .input-box-digit-3{
+.input-box-digit-1,
+.input-box-digit-2,
+.input-box-digit-3 {
+  text-align: center;
   width: 3em;
   height: 3em;
 }
 /* 도전, 한번 더 버튼 레이아웃 */
-.input-box-try, .input-box-reset{
+.input-box-try,
+.input-box-reset {
   font-size: 1.4rem;
-  font-family: 'Black Han Sans', sans-serif;
-
+  font-family: 'Gaegu', cursive;
 }
-.turn-list>div{
-  padding-top:10px;
+.turn-list > div {
+  padding-top: 10px;
   // display: block;
   display: flex;
   justify-content: space-between;
+}
+
+// 푸터
+.footer {
+  padding-top: 80px;
+  width: max-content;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 2rem;
 }
