@@ -46,7 +46,7 @@ body,
 html {  height: 100vh;
 }
 .bg {
-  background-image: url("../images/baseball.png");
+  background-image: url("../images/baseball.jpg");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@ html {  height: 100vh;
 .background {
   position: relative;
   background: #fff;
-  width: 500px;
+  width: 550px;
   height: 100%;
   margin: 0 auto;
   padding: 10px;
@@ -164,7 +164,7 @@ html {  height: 100vh;
   right: 10px;
 }
 .game-description{
-  display: none;
+  display: block;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0px;
