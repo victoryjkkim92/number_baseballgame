@@ -104,6 +104,9 @@ html {
 .input-box-digit-2,
 .input-box-digit-3 {
   text-align: center;
+  color: darkolivegreen;
+  font-size: 12px;
+  font-weight: 600;
   width: 3em;
   height: 3em;
 }
@@ -127,7 +130,7 @@ html {
   align-items: center;
 }
 .turn-list{
-  color: #aaa;
+  color: #aaaa33;
 }
 
 // 아웃인지 스트라이크인지 알려주는 부분
