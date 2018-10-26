@@ -63,11 +63,14 @@ ul {
 .input-box{
   margin-top: 20px;
 }
-.input-box-digit, .input-box-try, .input-box-reset{
+.input-boxes{
+  display: inline-block;
+}
+.input-box-digit-1, .input-box-digit-2, .input-box-digit-3, .input-box-try, .input-box-reset{
   line-height: 30px;
   margin: 0 5px;
 }
-.input-box-digit{
+.input-box-digit-1, .input-box-digit-2, .input-box-digit-3{
   width: 3em;
   height: 3em;
 }
@@ -75,4 +78,7 @@ ul {
 .input-box-try, .input-box-reset{
   font-size: 1.4rem;
 }
-
+.turn-list>div{
+  padding-top:10px;
+  display: block;
+}
