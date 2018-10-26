@@ -59,7 +59,7 @@ tryButton.addEventListener("click", e => {
     turnListEl.appendChild(turnListItemEl);
 
     // 시도 횟수 9회 초과 시 더 이상 '시도' 버튼을 누를 수 없게 한다.
-    if (roundNum === 10 && result !== "정답") {
+    if (roundNum === 10 && resultField.textContent !== "정답") {
       resultField.textContent =
         "정답은 " + answer[0] + " " + answer[1] + " " + answer[2] + " 입니다.";
       blockScreen();
