@@ -22,7 +22,8 @@ time, mark, audio, video /* * : 전체선택자*/ {
   font-family: "Gaegu", cursive;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */ /* 모르는 태그가 나오면 inline요소처리하는데, 해당 태그들를 block 요소로 만들어줌 */
+/* HTML5 display-role reset for older browsers */
+/* 모르는 태그가 나오면 inline요소처리하는데, 해당 태그들를 block 요소로 만들어줌 */
 article,
 aside,
 details,
@@ -43,8 +44,10 @@ ul {
 
 // 전체에 삽입되는 이미지
 body,
-html {  height: 100vh;
+html {
+  height: 100vh;
 }
+
 .bg {
   background-image: url("../images/baseball.jpg");
   height: 100vh;
@@ -59,6 +62,7 @@ html {  height: 100vh;
   background-size: cover;
   overflow: hidden;
 }
+
 // 모든 컨텐츠를 감싸는 메인 영역
 .main {
   display: block;
@@ -66,10 +70,10 @@ html {  height: 100vh;
   height: 90%;
   padding-top: 3%;
   padding-bottom: 1%;
-  border: 5px solid green;
   text-align: center;
   box-sizing: border-box;
 }
+
 // 게임 영역의 배경
 .background {
   position: relative;
@@ -88,9 +92,8 @@ html {  height: 100vh;
   background: -webkit-linear-gradient(#e3eaa7, #3e4444);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 3em;
+  font-size: 2.6em;
   font-family: "Gaegu", cursive;
-  border: 2px solid powderblue;
   height: 9%;
   width: 100%;
 }
@@ -101,11 +104,10 @@ html {  height: 100vh;
   width: 100%;
   margin: 0 auto;
 }
+
 .input-box {
-  // margin-top: 10px;
   height: 9%;
   line-height: 9%;
-  border: 2px solid pink;
   box-sizing: border-box;
 }
 .input-boxes {
@@ -116,9 +118,13 @@ html {  height: 100vh;
 .input-box-digit-3,
 .input-box-try,
 .input-box-reset {
-  // line-height: 30px;
+  line-height: 30px;
   margin: 0 5px;
+  border-radius: 5px;
+  color: darkolivegreen;
+  background-color: #bdcebe;
 }
+
 .input-box-digit-1,
 .input-box-digit-2,
 .input-box-digit-3 {
@@ -129,27 +135,23 @@ html {  height: 100vh;
 /* 도전, 한번 더 버튼 레이아웃 */
 .input-box-try,
 .input-box-reset {
-  font-size: 1.4rem;
-  color: darkolivegreen;
-  background-color: #bdcebe;
+  font-size: 1.5rem;
+  padding: 4px;
   font-family: "Gaegu", cursive;
-  border-radius: 5px;
 }
 // 게임을 하면 추가되는 세트
 .turn-list > div {
   padding: 0 10px;
   font-size: 1.2rem;
   height: 11%;
-  // display: block;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
 }
-.turn-list{
+.turn-list {
   color: #aaa;
   height: 80%;
-  border: 2px solid blue;
 }
 
 // 아웃인지 스트라이크인지 알려주는 부분
@@ -158,6 +160,18 @@ html {  height: 100vh;
   height: 100%;
   line-height: 50px;
 }
+
+// 푸터
+.footer {
+  padding-top: 20px;
+  width: max-content;
+  height: 10%;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 2rem;
+}
+
+// 게임설명
 .description-button {
   position: absolute;
   bottom: 10px;
@@ -165,7 +179,7 @@ html {  height: 100vh;
 }
 .game-description{
   display: block;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -174,14 +188,43 @@ html {  height: 100vh;
   text-align: center;
   color: white;
   font-size: 50px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.game-description > h2 {
+  height: 20vh;
+  line-height: 20vh;
+}
+.how-to-play {
+  font-size: 1.5rem;
+  // padding-top: 3%;
+  margin: 0 auto;
+  width: 60%;
+  height: 75vh;
+  margin-top: 10vh;
+  border-radius: 40px;
+  border: 1px dashed #fff;
+  box-sizing: border-box;
+}
+.how-to-play h2 {
+  font-size: 3rem;
+  height: 13vh;
+  line-height: 15vh;
+  box-sizing: border-box;
+  text-decoration: underline;
+  // border: 3px solid red;
+}
+.game-description p {
+  font-size: 1.6rem;
+  // border: 3px solid orange;
+  height: 10vh;
+  line-height: 9vh;
+  box-sizing: border-box;
 }
 
-// 푸터
-.footer {
-  width: max-content;
-  height: 10%;
-  margin: 0 auto;
-  color: #fff;
-  font-size: 2rem;
-  background-color: red;
+.wrong-answer{
+  display: none;
+  background: #fff;
 }
+
+

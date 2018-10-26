@@ -1,6 +1,7 @@
 const tryButton = document.querySelector(".input-box-try"); // '시도' 버튼 가져오기
 const resetButton = document.querySelector(".input-box-reset"); // '한번 더' 버튼 가져오기
-const inputBoxDigits = [ // 숫자 입력하는 input box 세 개 가져와서 배열로 저장
+const inputBoxDigits = [
+  // 숫자 입력하는 input box 세 개 가져와서 배열로 저장
   document.querySelector(".input-box-digit-1"),
   document.querySelector(".input-box-digit-2"),
   document.querySelector(".input-box-digit-3")
@@ -10,16 +11,19 @@ const inputBoxes = document.querySelector(".input-boxes"); // input box 세 개�
 const mainTitle = document.querySelector(".main-title"); // 타이틀 가져오기
 const description = document.querySelector(".game-description"); // 게임 설명 화면 요소 가져오기
 const descriptionButton = document.querySelector(".description-button"); // 게임 설명을 보기 위한 '?' 버튼
+
 let roundNum = 1; // 시도 횟수 카운트를 위한 변수 설정
 let answer = randomAnswer([]); // 랜덤 정답 설정
 console.log(answer);
 
+// 게임 설명 보여주기, 가져오기
 descriptionButton.addEventListener("click", e => {
   description.style.display = "block";
-})
+});
 description.addEventListener("click", e => {
   description.style.display = "none";
-})
+});
+
 
 // '시도' 버튼 눌렀을 때
 tryButton.addEventListener("click", e => {
@@ -59,13 +63,14 @@ tryButton.addEventListener("click", e => {
       resultField.textContent = "정답은 "+ answer[0] + " " + answer[1] + " " + answer[2] + " 입니다.";
       blockScreen();
     }
+
   }
   e.preventDefault();
 });
 
 // '한번 더' 버튼 눌렀을 때
 resetButton.addEventListener("click", e => {
-  roundNum = 1;  // 시도 횟수 초기화
+  roundNum = 1; // 시도 횟수 초기화
   tryButton.removeAttribute("disabled", ""); // 시도 횟수 못누르게 하던 속성 제거
   // 리스트에 요소들 다 지워서 초기화
   while (turnListEl.firstChild) {
@@ -162,7 +167,6 @@ function initialize() {
   inputBoxDigits[0].focus();
 }
 
-
 // 야구 게임 로직
 // 시도 횟수 한번에 대한 결과 판단 함수
 function oneGame(tryNum, result) {
@@ -172,11 +176,13 @@ function oneGame(tryNum, result) {
   if (strike === 3) {
     result = "정답!";
     blockScreen(); // 정답이면 '시도' 횟수 더 이상 못 누르게
-  } else { // 정답이 아니면 strike 와 ball 횟수 출력
+  } else {
+    // 정답이 아니면 strike 와 ball 횟수 출력
     result = ball + "B " + strike + "S"; // 1B 0S 이런식으로 결과 써주기
     initialize(); // input 상자 초기화
   }
-  if (strike === 0 && ball === 0) { // strike 와 ball 이 모두 0이라면 아웃!
+  if (strike === 0 && ball === 0) {
+    // strike 와 ball 이 모두 0이라면 아웃!
     result = "OUT";
   }
   // 결과 값 반환
