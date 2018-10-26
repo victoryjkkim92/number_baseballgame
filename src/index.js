@@ -8,9 +8,18 @@ const inputBoxDigits = [ // 숫자 입력하는 input box 세 개 가져와서 �
 const turnListEl = document.querySelector(".turn-list"); // 시도를 출력하기 위한 필드 가져오기
 const inputBoxes = document.querySelector(".input-boxes"); // input box 세 개를 묶은 div 가져오기
 const mainTitle = document.querySelector(".main-title"); // 타이틀 가져오기
+const description = document.querySelector(".game-description");
+const descriptionButton = document.querySelector(".description-button");
 let roundNum = 1; // 시도 횟수 카운트를 위한 변수 설정
 let answer = randomAnswer(); // 랜덤 정답 설정
 console.log(answer);
+
+descriptionButton.addEventListener("click", e => {
+  description.style.display = "block";
+})
+description.addEventListener("click", e => {
+  description.style.display = "none";
+})
 
 // '시도' 버튼 눌렀을 때
 tryButton.addEventListener("click", e => {
