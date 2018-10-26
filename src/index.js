@@ -27,12 +27,7 @@ description.addEventListener("click", e => {
 
 // '시도' 버튼 눌렀을 때
 tryButton.addEventListener("click", e => {
-<<<<<<< HEAD
-  if (nullCheck()) {
-    // input box 들에 값이 다 들어갔을 때에만 실행
-=======
   if (checkValidation()) { // input box 들에 값이 다 들어가고 중복 값이 없을 때에만 실행
->>>>>>> 8f592e66994726b3e7aba35a81295afc6f0353b3
     // 한번 시도 시 그에 대한 정보를 담아주기 위한 div 만듬
     const turnListItemEl = document.createElement("div");
     const round = document.createElement("span"); // 몇번째 시도인지 담을 span 만듬
@@ -63,12 +58,7 @@ tryButton.addEventListener("click", e => {
     turnListItemEl.appendChild(resultField);
     turnListEl.appendChild(turnListItemEl);
 
-<<<<<<< HEAD
-
-    // 정답일 시, 시도 횟수 9회 초과 시 더 이상 '시도' 버튼을 누를 수 없게 한다.
-=======
     // 시도 횟수 9회 초과 시 더 이상 '시도' 버튼을 누를 수 없게 한다.
->>>>>>> 8f592e66994726b3e7aba35a81295afc6f0353b3
     if (roundNum === 10 && result !== "정답") {
       resultField.textContent = "정답은 "+ answer[0] + " " + answer[1] + " " + answer[2] + " 입니다.";
       blockScreen();

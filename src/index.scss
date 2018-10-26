@@ -70,7 +70,6 @@ html {
   height: 90%;
   padding-top: 3%;
   padding-bottom: 1%;
-  border: 5px solid green;
   text-align: center;
   box-sizing: border-box;
 }
@@ -79,7 +78,7 @@ html {
 .background {
   position: relative;
   background: #fff;
-  width: 500px;
+  width: 550px;
   height: 100%;
   margin: 0 auto;
   padding: 10px;
@@ -95,7 +94,6 @@ html {
   -webkit-text-fill-color: transparent;
   font-size: 2.6em;
   font-family: "Gaegu", cursive;
-  border: 2px solid powderblue;
   height: 9%;
   width: 100%;
 }
@@ -108,10 +106,8 @@ html {
 }
 
 .input-box {
-  // margin-top: 10px;
   height: 9%;
   line-height: 9%;
-  border: 2px solid pink;
   box-sizing: border-box;
 }
 .input-boxes {
@@ -148,7 +144,6 @@ html {
   padding: 0 10px;
   font-size: 1.2rem;
   height: 11%;
-  // display: block;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -157,7 +152,6 @@ html {
 .turn-list {
   color: #aaa;
   height: 80%;
-  border: 2px solid blue;
 }
 
 // 아웃인지 스트라이크인지 알려주는 부분
@@ -186,12 +180,12 @@ html {
 
 // 푸터
 .footer {
+  padding-top: 20px;
   width: max-content;
   height: 10%;
   margin: 0 auto;
   color: #fff;
   font-size: 2rem;
-  background-color: red;
 }
 
 // 게임설명
