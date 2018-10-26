@@ -41,7 +41,6 @@ tryButton.addEventListener("click", e => {
     // 입력한 값을 tryNum에 배열로 담는다.
     for (let item of inputBoxDigits) {
       tryNum.push(item.value);
-      console.log("tryNum " + typeof(tryNum[0]));
     }
 
     // 시도한 값(tryNum)을 인수로 넘겨서 결과(예: 1B 2S, OUT)를 반환한 후, 그 값을 resultField에 써준다.
@@ -132,7 +131,7 @@ function checkValidation() {
       break;
     } // 입력 값이 숫자가 아닐 때
     else if(!Number.parseInt(inputBoxDigits[i].value) && inputBoxDigits[i].value !== "0"){
-      msg = "숫자만 입력해";
+      msg = "숫자만 입력해주세용";
       valid  = false;
       break;
     }
