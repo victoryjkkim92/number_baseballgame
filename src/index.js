@@ -15,8 +15,9 @@ tryButton.addEventListener("click", e => {
   tryNum = [];
   const round = document.createElement("span");
   const turnListEl = document.querySelector(".turn-list");
+  const turnListItemEl = document.createElement("div");
   // cloneNode에서 해당 node의 children 까지 복제하려면 true, 해당 node 만 복제하려면 false
-  const turnListItemEl = inputBoxes.cloneNode(true);
+  const inputBoxesClone = inputBoxes.cloneNode(true);
   tryNum.push(inputBoxDigit1.value);
   tryNum.push(inputBoxDigit2.value);
   tryNum.push(inputBoxDigit3.value);
@@ -27,12 +28,12 @@ tryButton.addEventListener("click", e => {
   resultField.textContent = result;
 
   // 리스트에 복제되서 추가되는 input box들 수정 막는 코드
-
-  for (let i = 0; i < turnListItemEl.children.length; i++) {
-    turnListItemEl.children[i].setAttribute("readonly", "");
+  for (let i = 0; i < inputBoxesClone.children.length; i++) {
+    inputBoxesClone.children[i].setAttribute("readonly", "");
   }
   round.textContent = roundNum++ + "회";
-  turnListItemEl.prepend(round);
+  inputBoxesClone.prepend(round);
+  turnListItemEl.appendChild(inputBoxesClone);
   turnListItemEl.appendChild(resultField);
   turnListEl.appendChild(turnListItemEl);
   inputBoxDigit1.value = "";
@@ -40,14 +41,9 @@ tryButton.addEventListener("click", e => {
   inputBoxDigit3.value = "";
   inputBoxDigit1.focus();
   console.log("result" + result);
-  // 숫자 제한
   // if(roundNum === 9){
 
   // }
-
-
-
-
 
 
   e.preventDefault();
@@ -74,7 +70,10 @@ function oneGame() {
   if (strike === 3) {
     // 스트라이크가 3이면 즈어어엉답!!
     console.log("즈어어엉답!!");
-    result =  "즈어엉답!";
+    result = "정답!";
+
+
+
   } else {
     // 정답이 아니면 strike 와 ball 횟수 출력
     console.log(strike + " strike");
