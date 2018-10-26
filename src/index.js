@@ -9,8 +9,8 @@ const inputBoxDigits = [
 const turnListEl = document.querySelector(".turn-list"); // 시도를 출력하기 위한 필드 가져오기
 const inputBoxes = document.querySelector(".input-boxes"); // input box 세 개를 묶은 div 가져오기
 const mainTitle = document.querySelector(".main-title"); // 타이틀 가져오기
-const description = document.querySelector(".game-description"); // 게임 설명
-const descriptionButton = document.querySelector(".description-button"); // 게임 설명 가져오기 버튼
+const description = document.querySelector(".game-description"); // 게임 설명 화면 요소 가져오기
+const descriptionButton = document.querySelector(".description-button"); // 게임 설명을 보기 위한 '?' 버튼
 
 let roundNum = 1; // 시도 횟수 카운트를 위한 변수 설정
 let answer = randomAnswer([]); // 랜덤 정답 설정
@@ -98,10 +98,8 @@ inputBoxDigits.forEach(el => {
 // 0~9 사이 랜덤한 정수 세 개를 반환한다.
 function randomAnswer(arr) {
   let tmpNum;
-  do {
+  do { // 중복 숫자가 아닐 때 까지
     tmpNum = getRandom();
-    if (arr.includes(tmpNum)) {
-    }
   } while (arr.includes(tmpNum));
   arr.push(tmpNum);
   if (arr.length < 3) {

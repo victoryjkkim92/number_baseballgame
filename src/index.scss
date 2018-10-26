@@ -156,14 +156,26 @@ html {
   height: 100%;
   line-height: 50px;
 }
+
+// 푸터
+.footer {
+  padding-top: 20px;
+  width: max-content;
+  height: 10%;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 2rem;
+}
+
+// 게임설명
 .description-button {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
-.game-description {
+.game-description{
   display: block;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -172,6 +184,8 @@ html {
   text-align: center;
   color: white;
   font-size: 50px;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 // 푸터
@@ -188,21 +202,34 @@ html {
 // 게임설명
 
 .game-description > h2 {
-  padding: 70px;
+  height: 20vh;
+  line-height: 20vh;
 }
 .how-to-play {
   font-size: 1.5rem;
-  padding-top:20px;
+  // padding-top: 3%;
   margin: 0 auto;
   width: 60%;
-  height: 60%;
+  height: 75vh;
+  margin-top: 10vh;
   border-radius: 40px;
   border: 1px dashed #fff;
+  box-sizing: border-box;
+}
+.how-to-play h2 {
+  font-size: 3rem;
+  height: 13vh;
+  line-height: 15vh;
+  box-sizing: border-box;
+  text-decoration: underline;
+  // border: 3px solid red;
 }
 .game-description p {
-  margin-top: 30px;
-  padding: 5px;
   font-size: 1.6rem;
+  // border: 3px solid orange;
+  height: 10vh;
+  line-height: 9vh;
+  box-sizing: border-box;
 }
 
 
