@@ -11,7 +11,7 @@ const mainTitle = document.querySelector(".main-title"); // 타이틀 가져오�
 const description = document.querySelector(".game-description");
 const descriptionButton = document.querySelector(".description-button");
 let roundNum = 1; // 시도 횟수 카운트를 위한 변수 설정
-let answer = randomAnswer(); // 랜덤 정답 설정
+let answer = randomAnswer([]); // 랜덤 정답 설정
 console.log(answer);
 
 descriptionButton.addEventListener("click", e => {
@@ -23,7 +23,7 @@ description.addEventListener("click", e => {
 
 // '시도' 버튼 눌렀을 때
 tryButton.addEventListener("click", e => {
-  if (nullCheck()) { // input box 들에 값이 다 들어갔을 때에만 실행
+  if (checkValidation()) { // input box 들에 값이 다 들어가고 중복 값이 없을 때에만 실행
     // 한번 시도 시 그에 대한 정보를 담아주기 위한 div 만듬
     const turnListItemEl = document.createElement("div");
     const round = document.createElement("span"); // 몇번째 시도인지 담을 span 만듬
@@ -37,6 +37,7 @@ tryButton.addEventListener("click", e => {
     // 입력한 값을 tryNum에 배열로 담는다.
     for (let item of inputBoxDigits) {
       tryNum.push(item.value);
+      console.log("tryNum " + typeof(tryNum[0]));
     }
 
     // 시도한 값(tryNum)을 인수로 넘겨서 결과(예: 1B 2S, OUT)를 반환한 후, 그 값을 resultField에 써준다.
@@ -53,8 +54,9 @@ tryButton.addEventListener("click", e => {
     turnListItemEl.appendChild(resultField);
     turnListEl.appendChild(turnListItemEl);
 
-    // 정답일 시, 시도 횟수 9회 초과 시 더 이상 '시도' 버튼을 누를 수 없게 한다.
+    // 시도 횟수 9회 초과 시 더 이상 '시도' 버튼을 누를 수 없게 한다.
     if (roundNum === 10 && result !== "정답") {
+      resultField.textContent = "정답은 "+ answer[0] + " " + answer[1] + " " + answer[2] + " 입니다.";
       blockScreen();
     }
   }
@@ -72,7 +74,7 @@ resetButton.addEventListener("click", e => {
     e.preventDefault();
   }
   // 정답 재설정
-  answer = randomAnswer();
+  answer = randomAnswer([]);
   console.log(answer);
 });
 
@@ -89,11 +91,22 @@ inputBoxDigits.forEach(el => {
 
 // 매 게임마다 랜덤 정답 설정을 위한 함수
 // 0~9 사이 랜덤한 정수 세 개를 반환한다.
-function randomAnswer() {
-  const a = Math.floor(Math.random() * 9);
-  const b = Math.floor(Math.random() * 9);
-  const c = Math.floor(Math.random() * 9);
-  return [a.toString(), b.toString(), c.toString()];
+function randomAnswer(arr) {
+  let tmpNum;
+  do {
+    tmpNum = getRandom();
+    if (arr.includes(tmpNum)) {
+    }
+  } while (arr.includes(tmpNum));
+  arr.push(tmpNum);
+  if (arr.length < 3) {
+    randomAnswer(arr);
+  }
+  return arr;
+}
+
+function getRandom() {
+  return Math.floor(Math.random() * 10).toString();
 }
 
 // 정답 시, 혹은 시도횟수 9회 초과 시 더 이상 '시도'버튼 못 누르게 block 해주는 함수
@@ -104,22 +117,42 @@ function blockScreen() {
 }
 
 // input에 값을 다 채웠는지 체크해주는 함수
-function nullCheck() {
-  if (
-    inputBoxDigits[0].value === "" ||
-    inputBoxDigits[1].value === "" ||
-    inputBoxDigits[2].value === ""
-  ) {
-    // 값을 다 채우지 않았으면 타이틀에 경고 메세지 띄우기
-    mainTitle.innerHTML = "답 똑디 채워라";
-    initialize(); // 값을 다 채우지 않았으면 박스에 채워진 값 초기화
+function checkValidation() {
+  let msg = "";
+  let valid = true;
+  // 값을 다 채우지 않았을 때
+  for(let i=0; i<answer.length; i++){ // 그냥 answer.length 는 3
+    // 입력값이 빈칸일 때
+    if ( inputBoxDigits[i].value === "") {
+      msg = "빈칸 앙대요!";
+      valid = false;
+      break;
+    } // 입력 값이 숫자가 아닐 때
+    else if(!Number.parseInt(inputBoxDigits[i].value) && inputBoxDigits[i].value !== "0"){
+      msg = "숫자만 입력해";
+      valid  = false;
+      break;
+    }
+    for(let j=i+1; j<answer.length; j++){ // 입력 값 중 중복이 있을 때
+      if (inputBoxDigits[i].value === inputBoxDigits[j].value){
+        msg = "중복 앙대요!";
+        valid = false;
+        break;
+      }
+    }
+  }
+
+  if(valid){ // 잘 입력했으면 return true
+    return true;
+  } else { // 중복이 있거나 빈칸이면 처리
+    mainTitle.innerHTML = msg; // 타이틀에 경고 메세지 나타내기
+    initialize(); // 박스에 채워진 값 초기화
     // 1초 후 타이틀 다시 원상복구
     setTimeout(function() {
       mainTitle.innerHTML = "숫자야구 with 츄츄트레인";
     }, 1000);
     return false;
   }
-  return true;
 }
 
 // input 박스들에 쓰여진 숫자를 지움으로써 초기화시켜주는 함수
