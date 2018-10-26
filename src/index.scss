@@ -44,35 +44,47 @@ ul {
 
 // 전체에 삽입되는 이미지
 body,
-html {
-  height: 100%;
+html {  height: 100vh;
 }
 
 .bg {
   background-image: url("../images/baseball.png");
-  height: 100%;
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  // 윈도우 호환 테스트 코드
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
 }
 
 // 모든 컨텐츠를 감싸는 메인 영역
 .main {
   display: block;
   margin: 0 auto;
-  padding-top: 50px;
+  height: 90%;
+  padding-top: 3%;
+  padding-bottom: 1%;
+  border: 5px solid green;
   text-align: center;
+  box-sizing: border-box;
 }
 
 // 게임 영역의 배경
 .background {
+  position: relative;
   background: #fff;
   width: 500px;
-  height: 590px;
+  height: 100%;
   margin: 0 auto;
-  padding: 30px;
+  padding: 10px;
   border: 5px dotted #c94c4c;
   border-radius: 30px;
+  box-sizing: border-box;
 }
 
 // 게임의 제목
@@ -82,17 +94,24 @@ html {
   -webkit-text-fill-color: transparent;
   font-size: 3em;
   font-family: "Gaegu", cursive;
+  border: 2px solid powderblue;
+  height: 9%;
+  width: 100%;
 }
 
 /* 숫자가 들어올 input상자 레이아웃 */
 .input-box,
 .turn-list {
-  width: 400px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .input-box {
-  margin-top: 10px;
+  // margin-top: 10px;
+  height: 9%;
+  line-height: 9%;
+  border: 2px solid pink;
+  box-sizing: border-box;
 }
 .input-boxes {
   display: inline-block;
@@ -113,10 +132,8 @@ html {
 .input-box-digit-2,
 .input-box-digit-3 {
   text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  width: 3em;
-  height: 3em;
+  height: 30px;
+  width: 30px;
 }
 /* 도전, 한번 더 버튼 레이아웃 */
 .input-box-try,
@@ -127,16 +144,19 @@ html {
 }
 // 게임을 하면 추가되는 세트
 .turn-list > div {
-  padding-top: 5px;
+  padding: 0 10px;
   font-size: 1.2rem;
-  height: 50px;
+  height: 11%;
   // display: block;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
-.turn-list {
-  color: #363617;
+.turn-list{
+  color: #aaa;
+  height: 80%;
+  border: 2px solid blue;
 }
 
 // 아웃인지 스트라이크인지 알려주는 부분
@@ -145,12 +165,30 @@ html {
   height: 100%;
   line-height: 50px;
 }
+.description-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.game-description{
+  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
 
 // 푸터
 .footer {
-  padding-top: 60px;
   width: max-content;
+  height: 10%;
   margin: 0 auto;
   color: #fff;
   font-size: 2rem;
+  background-color: red;
 }
