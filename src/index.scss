@@ -60,6 +60,10 @@ ul {
 }
 
 /* 숫자가 들어올 input상자 레이아웃 */
+.input-box, .turn-list{
+  width: 400px;
+  margin: 0 auto;
+}
 .input-box{
   margin-top: 20px;
 }
@@ -77,9 +81,13 @@ ul {
 /* 도전, 한번 더 버튼 레이아웃 */
 .input-box-try, .input-box-reset{
   font-size: 1.4rem;
+  font-family: 'Black Han Sans', sans-serif;
+
 }
 
 .turn-list>div{
   padding-top:10px;
-  display: block;
+  // display: block;
+  display: flex;
+  justify-content: space-between;
 }
